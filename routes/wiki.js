@@ -15,16 +15,11 @@ const { Page, User } = require('../models')
   });
 
   router.post('/', async (req, res, next) => {
-    // const response = res.json(req.body.textContent);
-    // const response = res.json(req.body.authorName)
-      // authorEmail,
-      // textContent,
-      // statusFeild,
-      // pageTitle,
       const page = new Page({
         title: req.body.pageTitle,
         content: req.body.textContent,
-      });
+      })
+
   // make sure we only redirect *after* our save is complete!
   // note: `.save` returns a promise.
       try {
@@ -34,11 +29,8 @@ const { Page, User } = require('../models')
   });
 
   router.get('/add', (req, res, next) => {
-    // console.log(res.json(req.body))
-
     res.send(addPage());
-    // res.send('got to GET /wiki/add')
   });
 
 
-module.exports = router;
+module.exports = {router};
